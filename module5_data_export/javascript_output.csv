@@ -1,4 +1,4 @@
-id,name,role
-1,Alice,Admin
-2,Bob,User
-3,Charlie,Guest
+id,name,role,skills,is_active
+101,Alice Johnson,Lead Engineer,"Python, AWS, Docker",true
+102,Marcus Chen,UX Designer,"Figma, CSS, React",true
+103,Sarah Smith,Data Analyst,"SQL, Tableau, R",false

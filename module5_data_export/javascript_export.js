@@ -1,8 +1,9 @@
+// Repo: https://github.com/pv-lftd/operator_lab/tree/main/module5_data_export
 // Fill in the blanks
 const file = [
-  { id: 1, name: "Alice", role: "Admin" },
-  { id: 2, name: "Bob", role: "User" },
-  { id: 3, name: "Charlie", role: "Guest" }
+  { id: 101, name: "Alice Johnson", role: "Lead Engineer", skills: ["Python", "AWS", "Docker"], is_active: true },
+  { id: 102, name: "Marcus Chen", role: "UX Designer", skills: ["Figma", "CSS", "React"], is_active: true },
+  { id: 103, name: "Sarah Smith", role: "Data Analyst", skills: ["SQL", "Tableau", "R"], is_active: false }
 ];
 // 1. Manually extract headers from the first object
 const headers = Object.keys(file[0]); // type of the file
@@ -21,7 +22,8 @@ for (let i = 0; i < file.length; i++) { // what loop?
   // Loop through each header to get the values for this row
   for (let j = 0; j < headers.length; j++) { // should we add ++ or --
     const key = headers[j];
-    js_result = js_result + row[key];
+    const value = Array.isArray(row[key]) ? row[key].join(", ") : row[key];
+    js_result += String(value).includes(",") ? `"${value}"` : value;
     if (j < headers.length - 1) {
       js_result += ","; // Add comma between values
     }
